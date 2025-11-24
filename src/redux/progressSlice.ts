@@ -5,8 +5,8 @@ const progressApi = createApi({
   reducerPath: "progressApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${getBaseurl()}/api/progress`,
-    credentials: "include",
-
+      credentials: "include",
+    
     prepareHeaders: (h) => {
       const token = localStorage.getItem("token");
       if (token) h.set("Authorization", `Bearer ${token}`);
@@ -16,39 +16,35 @@ const progressApi = createApi({
   tagTypes: ["Progress"],
   endpoints: (builder) => ({
     getProgress: builder.query({
-      query: () => "/",
-      providesTags: ["Progress"],
+        query: () => "/",
+         providesTags: ["Progress"],
     }),
     updateProgress: builder.mutation({
-      query: (body) => ({
+      query: (data ) => ({
         url: "/update",
         method: "POST",
-        body,
-      }),
-      invalidatesTags: ["Progress"],
+        body:data,
+        }),
+         invalidatesTags:["Progress"],
     }),
-    deleteProgress: builder.mutation({
-      query: (id) => ({
-        url: `/delete/${id}`,
-        method: "DELETE",
+      deleteProgress: builder.mutation({
+       query: (id) => ({
+              url:`/delete/${id}`,
+           method:"DELETE"
+          }),
+          invalidatesTags:["Progress"],
       }),
-      invalidatesTags: ["Progress"],
+      updatelevel: builder.mutation({
+          query: (level) => ({
+              url: "/update-level",
+              method: "POST",
+              body:{level}
+          }),
+           invalidatesTags:["Progress"],
+      })
     }),
-    updatelevel: builder.mutation({
-      query: (level) => ({
-        url: "/update-level",
-        method: "POST",
-        body: { level },
-      }),
-      invalidatesTags: ["Progress"],
-    }),
-  }),
+  
 });
 
-export const {
-  useGetProgressQuery,
-  useUpdateProgressMutation,
-  useDeleteProgressMutation,
-  useUpdatelevelMutation,
-} = progressApi;
+export const { useGetProgressQuery, useUpdateProgressMutation,useDeleteProgressMutation,useUpdatelevelMutation } = progressApi;
 export default progressApi;

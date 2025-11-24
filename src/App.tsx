@@ -2,8 +2,17 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
+import Loading from "./components/Loading";
 
 function App() {
+   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) return <Loading/>;
   return (
     <main
       className="  min-h-screen bg-white 

@@ -28,7 +28,32 @@ const workoutsapi = createApi({
       transformResponse: (response: any) => response.workouts,
       providesTags: ["workouts"],
     }),
+    addWOrkouts: builder.mutation({
+      query: (newWorkout) =>({
+        url: `/add-workout`,
+        method: "POST",
+        body:newWorkout,
+      }),
+      invalidatesTags:["workouts"]
+    }),
+    deleteWorkouts: builder.mutation({
+      query: (id) =>({
+        url: `/delete/${id}`,
+        method: "DELETE",
+    
+      }),
+      invalidatesTags:["workouts"]
+    }),
+    updateWorkouts: builder.mutation({
+      query: ({ id, data}):any => ({
+        url:`/edit/${id}`,
+        method: "PUT",
+        body:data,
+      }),
+            invalidatesTags:["workouts"]
+    })
   }),
+  
 });
-export const { useFetchAllWorkoutsQuery } = workoutsapi;
+export const { useFetchAllWorkoutsQuery,useDeleteWorkoutsMutation,useAddWOrkoutsMutation,useUpdateWorkoutsMutation } = workoutsapi;
 export default workoutsapi;
