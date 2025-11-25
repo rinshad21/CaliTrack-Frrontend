@@ -30,7 +30,7 @@ function Footer() {
               Open Source
             </h4>
             <a
-              href="https://github.com"
+              href="https://github.com/rinshad21/CaliTrack-Frontend"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-4 py-3 bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-300 hover:shadow-lg"

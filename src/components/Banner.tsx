@@ -2,7 +2,7 @@ import { ArrowRight, Zap } from "lucide-react";
 import banner from "../assets/banner.png";
 const Banner = () => {
   return (
-    <div className="flex flex-col md:flex-row-reverse px-8  justify-between items-center md:gap-5 transition mt-2">
+    <div className="flex flex-col md:flex-row-reverse md-px-8 px-1 justify-between items-center md:gap-5 transition mt-3">
       <div className="hidden md:flex md:w-1/2  w-full items-center md:justify-end transition hover:scale-110 duration-300">
         <img
           src={banner}
