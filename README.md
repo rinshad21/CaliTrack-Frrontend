@@ -22,6 +22,7 @@ CaliTrack is a calisthenics and home-workout tracking application built with a m
 * Cloudinary (via backend API)
 
 ---
+```bash
 npm install
-npm install
+npm run dev
 
