@@ -31,14 +31,23 @@ function Register() {
           "Content-Type": "application/json",
         },
       });
-
+      const auth = response.data;
+      if (auth.token) {
+        localStorage.setItem("token", auth.token);
+        localStorage.setItem("level", auth.level);
+      }
       handleSuccess("login successfull");
       setTimeout(() => {
         navigate("/");
       }, 1000);
     } catch (error) {
       console.log(error);
-      handleError("error occured cannot register your account, try again");
+ if (axios.isAxiosError(error)) {
+    
+    handleError(error.response?.data?.message);
+  } else {
+    handleError("Something went wrong");
+  }
     }
   };
 

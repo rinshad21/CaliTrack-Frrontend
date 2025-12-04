@@ -52,7 +52,7 @@ const ContentSection = () => {
             </div>
           </Link>
 
-          <Link to="progress" className="group cursor-pointer">
+          <Link to="/progress" className="group cursor-pointer">
             <div className="relative bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl p-8 shadow-xl border border-slate-600 hover:border-cyan-400 transition-all duration-300 overflow-hidden h-full">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
